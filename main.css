@@ -1,0 +1,22 @@
+header {
+  text-align: center;
+  color: grey;
+}
+
+#demo {
+  border: 4px solid grey;
+  height: 33em;
+  width: 25.5em;
+  margin: 0 auto;
+  display: block;
+}
+
+.parameter {
+  margin: 1em;
+}
+
+.option {
+  display: inline-block;
+  height:10.5em;
+  width: 25.5em;
+}
