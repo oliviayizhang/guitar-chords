@@ -1,3 +1,7 @@
+body {
+  font-family: "Lato"
+}
+
 header {
   text-align: center;
   color: grey;
@@ -19,4 +23,27 @@ header {
   display: inline-block;
   height:10.5em;
   width: 25.5em;
+}
+
+#message {
+  text-align: center;
+  font-size: 1.1em;
+  background-color: rgba(66, 244, 235, 0.3)
+}
+
+@media print {
+  .parameter, #message, h1, h2 {
+    display: none;
+  }
+  #demo {
+    border: none;
+  }
+  #demo img {
+    border: 1px solid red;
+  }
+  body {
+    width: 210mm;
+    height: 297em;
+  }
+
 }
