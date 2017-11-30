@@ -41,9 +41,8 @@ header {
   #demo img {
     border: 1px solid red;
   }
-  body {
-    width: 210mm;
-    height: 297em;
+  @page {
+    size: A4;
   }
 
 }
