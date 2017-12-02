@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato"
+  font-family: "Lato";
 }
 
 header {
@@ -15,15 +15,29 @@ header {
   display: block;
 }
 
+#leftPane, #rightPane {
+  position: absolute; width: 45%;
+}
+
+#rightPane {
+  right: 0;
+}
+
+#leftPane {
+  left: 0;
+}
+
 .parameter {
   margin: 1em;
 }
 
 .option {
   display: inline-block;
-  height:10.5em;
-  width: 25.5em;
+  height:5.25em;
+  width: 12.75em;
 }
+
+#demo img { width: 25.5em; height: 10.5em; }
 
 #message {
   text-align: center;
@@ -31,18 +45,39 @@ header {
   background-color: rgba(66, 244, 235, 0.3)
 }
 
+@page {
+  size: letter;
+  margin: 0;
+}
+
 @media print {
-  .parameter, #message, h1, h2 {
+  html, body {
+      margin: 0!important;
+      width: 8.5in;
+      height: 11in;
+  }
+  .parameter, #message, h1, h2, p {
     display: none;
   }
   #demo {
     border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  html, body, #demo  {
+    width: 8.5in!important;
+    height: 11in!important;
+    margin:0!important;
+    padding:0!important;
+    border:none!important;
   }
   #demo img {
-    border: 1px solid red;
+    width: 100%!important;
+    margin:0!important;
+    padding:0!important;
+    border:none!important;
+    height: 3.5in!important;
   }
-  @page {
-    size: A4;
-  }
-
 }

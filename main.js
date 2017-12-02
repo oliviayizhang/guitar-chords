@@ -1,15 +1,19 @@
 $(document).ready(function() {
-    $(".option").draggable({
-      helper: "clone",
-      opacity: 0.5,
-      // cursor: "copy",
-      connectToSortable: "#demo",
-      start: function(event, ui) {
-        if ($("#demo .option").length >= 3) {
-          event.preventDefault()
-        }
+  $(".option").draggable({
+    helper: "clone",
+    opacity: 0.5,
+    // cursor: "copy",
+    connectToSortable: "#demo",
+    start: function(event, ui) {
+      if ($("#demo .option").length >= 3) {
+        event.preventDefault()
       }
-    })
+    }
+  })
+
+  $(".option").bind("drag", function(event, ui) {
+    console.log(ui);
+  })
 
 //can listen to when the event is starting and do stuff
     // $( ".option" ).on( "dragstart", function( event, ui ) {
@@ -37,3 +41,8 @@ $(document).ready(function() {
    }
   })
 })
+
+function printPage() {
+  window.print()
+  console.log("Print");
+}
