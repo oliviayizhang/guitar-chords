@@ -31,6 +31,58 @@ header {
   margin: 1em;
 }
 
+.fa {
+  padding: 1em;
+}
+
+.tab-example, .dual-example, .standard-example, .chords-med-example, .chords-large-example, .fretboard-large-example, .fretboard-med-example {
+  position: relative;
+  display: inline-block;
+  /*border: 1px solid blue;*/
+}
+
+.fill-icon {
+  color: #4DB267;
+  padding: 0;
+  /*border: 1px solid red;*/
+}
+
+#preset-tab, #preset-dual, #preset-standard, #preset-chords-med, #preset-chords-large, #preset-fretboard-large, #preset-fretboard-med {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 43%;
+}
+
+/*hover over --reorganize!!*/
+.tab-example:hover #preset-tab {
+  display: block;
+}
+
+.dual-example:hover #preset-dual {
+  display: block;
+}
+
+.standard-example:hover #preset-standard {
+  display: block;
+}
+
+.chords-med-example:hover #preset-chords-med {
+  display: block;
+}
+
+.chords-large-example:hover #preset-chords-large {
+  display: block;
+}
+
+.fretboard-large-example:hover #preset-fretboard-large {
+  display: block;
+}
+
+.fretboard-med-example:hover #preset-fretboard-med {
+  display: block;
+}
+
 .option {
   display: inline-block;
   height:5.25em;
@@ -56,7 +108,7 @@ header {
       width: 8.5in;
       height: 11in;
   }
-  .parameter, #message, h1, h2, p {
+  .parameter, #message, h1, h2, p, i, button, #print, #clear {
     display: none;
   }
   #demo {

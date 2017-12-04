@@ -5,6 +5,7 @@
     <title>Guitar Sheets</title>
     <link rel="stylesheet" type="text/css" href="./main.css">
     <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <script src="https://use.fontawesome.com/f8dfbd4f24.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script src="main.js"></script>
@@ -17,22 +18,53 @@
 
     <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
 
+    <i class="fa fa-print fa-lg" id="print" aria-hidden="true"></i>
+    <i class="fa fa-trash-o fa-lg" id="clear" aria-hidden="true"></i>
+
+    <!-- begin area -->
     <div id='leftPane'>
       <div id="demo">
       </div>
     </div>
 
-    <input type="button" value="Print" onClick="printPage()" />
-
     <div id='rightPane'>
       <div class="parameter">
+
+        <div class="tab-example">
           <img class="option" id="tab" src="./img/x-blank_tab.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-tab" aria-hidden="true" onClick="fillPage('#tab')"></i>
+        </div>
+
+        <div class="dual-example">
           <img class="option" id="dual" src="./img/x-blank-dual.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-dual" aria-hidden="true" onClick="fillPage('#dual')"></i>
+        </div>
+
+        <div class="standard-example">
           <img class="option" id="standard" src="./img/x-blank-standard.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-standard" aria-hidden="true" onClick="fillPage('#standard')"></i>
+        </div>
+
+        <div class="chords-med-example">
           <img class="option" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-med" aria-hidden="true" onClick="fillPage('#chords-med')"></i>
+        </div>
+
+        <div class="chords-large-example">
           <img class="option" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-large" aria-hidden="true"  onClick="fillPage('#chords-lrg')"></i>
+        </div>
+
+        <div class="fretboard-large-example">
           <img class="option" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-fretboard-large" aria-hidden="true" onClick="fillPage('#fretboard-lrg')"></i>
+        </div>
+
+        <div class="fretboard-med-example">
           <img class="option" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
+          <i class="fa fa-plus-square fa-2x fill-icon" aria-hidden="true" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
+        </div>
+
       </div>
   </div>
   </body>

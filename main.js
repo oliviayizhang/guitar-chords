@@ -2,17 +2,12 @@ $(document).ready(function() {
   $(".option").draggable({
     helper: "clone",
     opacity: 0.5,
-    // cursor: "copy",
     connectToSortable: "#demo",
     start: function(event, ui) {
       if ($("#demo .option").length >= 3) {
         event.preventDefault()
       }
     }
-  })
-
-  $(".option").bind("drag", function(event, ui) {
-    console.log(ui);
   })
 
 //can listen to when the event is starting and do stuff
@@ -40,9 +35,25 @@ $(document).ready(function() {
      }
    }
   })
+
+  $("#print").click(function() {
+    window.print();
+  })
+
+  $("#clear").click(function() {
+    $("#demo .option").remove()
+  })
+
 })
 
-function printPage() {
-  window.print()
-  console.log("Print");
+// make a function to fill demo with selected music
+
+let fillPage = (id) => {
+  $("#demo .option").remove()
+  if($("demo").children().length == 0) {
+    let times = 3
+    for(let i = 0; i < times; i++) {
+      $("#demo").append($(id).clone())
+    }
+  }
 }
