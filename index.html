@@ -5,6 +5,7 @@
     <title>Guitar Sheets</title>
     <link rel="stylesheet" type="text/css" href="./main.css">
     <link rel="stylesheet" type="text/css" href="./normalize.css">
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
     <script src="https://use.fontawesome.com/f8dfbd4f24.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
@@ -16,56 +17,86 @@
       <h2>Printable Guitar Sheets</h2>
     </header>
 
+  <!-- begin area -->
+  <div id='print-window'>
     <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
 
-    <i class="fa fa-print fa-lg" id="print" aria-hidden="true"></i>
-    <i class="fa fa-trash-o fa-lg" id="clear" aria-hidden="true"></i>
+	  <div id="button-box">
+  		<button id="print"><i class="fa fa-print fa-lg" id="" aria-hidden="true"></i>Print</button>
+   	  <button id="clear"><i class="fa fa-times-circle  fa-lg" id="" aria-hidden="true"></i>Clear</button>
+	  </div>
 
-    <!-- begin area -->
-    <div id='leftPane'>
-      <div id="demo">
-      </div>
-    </div>
+  	<div id='leftPane'>
+	    <div id="demo">
+        <i style="top: 1%;" class="fa fa-minus-square fa-2x delete-button" id="top-delete" aria-hidden="true" onClick="removeOne('0')"></i>
+
+      	 <!-- <div>
+      	  <i style="top: 1%;" class="fa fa-minus-square fa-2x delete-button" id="top-delete" aria-hidden="true" onClick="removeOne('0')"></i>
+      	  </div>
+
+      	  <div>
+      	  <i style="top: 33%;" class="fa fa-minus-square fa-2x delete-button" id="middle-delete" aria-hidden="true" onClick="removeOne('1')"></i>
+      	  </div>
+
+      	  <div>
+      	  <i style="top: 66%;" class="fa fa-minus-square fa-2x delete-button" id="bottom-delete" aria-hidden="true" onClick="removeOne('2')"></i>
+      	  </div> -->
+
+	  </div>
+	 </div>
 
     <div id='rightPane'>
       <div class="parameter">
 
         <div class="tab-example">
-          <img class="option" id="tab" src="./img/x-blank_tab.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-tab" aria-hidden="true" onClick="fillPage('#tab')"></i>
+          <img class="option" id="tab" src="./img/x-blank-tab.png" alt="">
+          <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-tab" aria-hidden="true" onClick="fillPage('#tab')"></i> -->
         </div>
 
         <div class="dual-example">
           <img class="option" id="dual" src="./img/x-blank-dual.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-dual" aria-hidden="true" onClick="fillPage('#dual')"></i>
+          <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-dual" aria-hidden="true" onClick="fillPage('#dual')"></i> -->
         </div>
 
         <div class="standard-example">
           <img class="option" id="standard" src="./img/x-blank-standard.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-standard" aria-hidden="true" onClick="fillPage('#standard')"></i>
+          <i class="fi-paint-bucket fill-icon" id="preset-standard" onClick="fillPage('#standard')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-standard" aria-hidden="true" onClick="fillPage('#standard')"></i> -->
         </div>
 
         <div class="chords-med-example">
-          <img class="option" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-med" aria-hidden="true" onClick="fillPage('#chords-med')"></i>
+          <img class="option gray-print" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
+          <i class="fi-paint-bucket fill-icon" id="preset-chords-med" onClick="fillPage('#chords-med')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-med" aria-hidden="true" onClick="fillPage('#chords-med')"></i> -->
+
         </div>
 
         <div class="chords-large-example">
-          <img class="option" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-large" aria-hidden="true"  onClick="fillPage('#chords-lrg')"></i>
+          <img class="option gray-print" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
+          <i class="fi-paint-bucket fill-icon" id="preset-chords-large" onClick="fillPage('#chords-lrg')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-chords-large" aria-hidden="true"  onClick="fillPage('#chords-lrg')"></i> -->
         </div>
 
         <div class="fretboard-large-example">
-          <img class="option" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" id="preset-fretboard-large" aria-hidden="true" onClick="fillPage('#fretboard-lrg')"></i>
+          <img class="option gray-print" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
+          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-large" onClick="fillPage('#fretboard-lrg')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" id="preset-fretboard-large" aria-hidden="true" onClick="fillPage('#fretboard-lrg')"></i> -->
         </div>
 
         <div class="fretboard-med-example">
-          <img class="option" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
-          <i class="fa fa-plus-square fa-2x fill-icon" aria-hidden="true" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
+          <img class="option gray-print" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
+          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
+          <!-- <i class="fa fa-plus-square fa-2x fill-icon" aria-hidden="true" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i> -->
         </div>
 
       </div>
+    </div>
+
   </div>
+
+  <!-- end -->
+
   </body>
 </html>

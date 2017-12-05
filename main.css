@@ -2,6 +2,14 @@ body {
   font-family: "Lato";
 }
 
+#print-window {
+  height: 20em;
+  max-width: 65em;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
 header {
   text-align: center;
   color: grey;
@@ -15,8 +23,49 @@ header {
   display: block;
 }
 
+#rightPane img {
+  border: .1em dashed #eee;
+  margin: .1em;
+}
+
+#button-box {
+	display: relative;
+	width: 17em;
+	margin: 0 auto;
+}
+
+#demo img.gray-print {
+  opacity: .4;
+}
+
+
+#button-box button {
+	position: relative;
+	width: 7em;
+	border-radius: .5em;
+	background-color: #4ECC6E;
+	padding: .5em;
+	color: white;
+	border: none;
+	box-shadow: 1px 2px 5px #ddd;
+  outline: none;
+	}
+
+button:hover {
+  cursor: pointer;
+}
+
+#button-box i {
+  padding:0;
+  position: absolute;
+  left: .5em;
+}
+
+
 #leftPane, #rightPane {
-  position: absolute; width: 45%;
+  position: absolute;
+  width: 45%;
+  margin-top: 1em;
 }
 
 #rightPane {
@@ -38,50 +87,12 @@ header {
 .tab-example, .dual-example, .standard-example, .chords-med-example, .chords-large-example, .fretboard-large-example, .fretboard-med-example {
   position: relative;
   display: inline-block;
-  /*border: 1px solid blue;*/
 }
 
-.fill-icon {
-  color: #4DB267;
-  padding: 0;
-  /*border: 1px solid red;*/
+.tab-example, .dual-example, .standard-example, .chords-med-example, .chords-large-example, .fretboard-large-example, .fretboard-med-example:hover {
+  cursor: copy;
 }
 
-#preset-tab, #preset-dual, #preset-standard, #preset-chords-med, #preset-chords-large, #preset-fretboard-large, #preset-fretboard-med {
-  display: none;
-  position: absolute;
-  top: 30%;
-  left: 43%;
-}
-
-/*hover over --reorganize!!*/
-.tab-example:hover #preset-tab {
-  display: block;
-}
-
-.dual-example:hover #preset-dual {
-  display: block;
-}
-
-.standard-example:hover #preset-standard {
-  display: block;
-}
-
-.chords-med-example:hover #preset-chords-med {
-  display: block;
-}
-
-.chords-large-example:hover #preset-chords-large {
-  display: block;
-}
-
-.fretboard-large-example:hover #preset-fretboard-large {
-  display: block;
-}
-
-.fretboard-med-example:hover #preset-fretboard-med {
-  display: block;
-}
 
 .option {
   display: inline-block;
@@ -89,7 +100,14 @@ header {
   width: 12.75em;
 }
 
-#demo img { width: 25.5em; height: 10.5em; }
+#demo .option:hover {
+  cursor: all-scroll;
+}
+
+#demo img {
+  width: 25.5em;
+  height: 10.5em;
+}
 
 #message {
   text-align: center;
@@ -97,20 +115,72 @@ header {
   background-color: rgba(66, 244, 235, 0.3)
 }
 
+/*Styles for Invisi-Hover-Bubblons */
+
+/* Red Buttons in #demo */
+
+
+
+/* Green button for Options */
+.fill-icon {
+  color: #4DB267;
+  padding: 0;
+  font-size: 2em;
+}
+
+.fill-icon:hover {
+  cursor: pointer;
+}
+
+#preset-tab, #preset-dual, #preset-standard, #preset-chords-med, #preset-chords-large, #preset-fretboard-large, #preset-fretboard-med {
+  display: none;
+  position: absolute;
+  top: -10%;
+  left: 90%;
+}
+
+.tab-example:hover #preset-tab, .dual-example:hover #preset-dual, .standard-example:hover #preset-standard, .chords-med-example:hover #preset-chords-med, .chords-large-example:hover #preset-chords-large, .fretboard-large-example:hover #preset-fretboard-large, .fretboard-med-example:hover #preset-fretboard-med {
+  display: block;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 1000px) {
+	#rightPane, #leftPane {
+    width: 100%;
+    position: relative;
+  }
+
+	#rightPane {
+    width: 30em!important;
+     margin: 1em auto;
+   }
+	}
+
+/*** PRINT STYLES ***/
 @page {
   size: letter;
   margin: 0;
 }
 
 @media print {
+  img {
+    filter: none!important; }
+
+  * {
+    margin:0!important;
+    padding:0!important;
+  }
+
   html, body {
-      margin: 0!important;
       width: 8.5in;
       height: 11in;
+      background: white!important;
   }
-  .parameter, #message, h1, h2, p, i, button, #print, #clear {
+
+  .parameter, #message, h1, h2, p, i, button, #print, #clear, #demo i {
     display: none;
   }
+
   #demo {
     border: none;
     position: absolute;
@@ -118,17 +188,16 @@ header {
     left: 0;
     width: 100%;
   }
-  html, body, #demo  {
+
+  html, body, #demo, #mainFrame {
     width: 8.5in!important;
     height: 11in!important;
-    margin:0!important;
-    padding:0!important;
     border:none!important;
+    margin: 0!important;
   }
+
   #demo img {
     width: 100%!important;
-    margin:0!important;
-    padding:0!important;
     border:none!important;
     height: 3.5in!important;
   }
