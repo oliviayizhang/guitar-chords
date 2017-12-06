@@ -31,12 +31,10 @@ header {
 #button-box {
 	display: relative;
 	width: 17em;
-	margin: 0 auto;
+	margin: 1.5em auto;
 }
 
-#demo img.gray-print {
-  opacity: .4;
-}
+
 
 
 #button-box button {
@@ -49,10 +47,25 @@ header {
 	border: none;
 	box-shadow: 1px 2px 5px #ddd;
   outline: none;
+  transition: background-color .3s ease;
 	}
 
-button:hover {
+#button-box button:hover {
   cursor: pointer;
+  background-color: #4DB267;
+}
+
+#button-box button:active {
+  background-color: green;
+}
+
+
+#leftPane i {
+  transition: color .5s ease;
+}
+
+#leftPane i:active {
+  color: black;
 }
 
 #button-box i {
@@ -84,15 +97,20 @@ button:hover {
   padding: 1em;
 }
 
-.tab-example, .dual-example, .standard-example, .chords-med-example, .chords-large-example, .fretboard-large-example, .fretboard-med-example {
+#rightPane div div {
   position: relative;
   display: inline-block;
 }
 
-.tab-example, .dual-example, .standard-example, .chords-med-example, .chords-large-example, .fretboard-large-example, .fretboard-med-example:hover {
-  cursor: copy;
+#rightPane div div:hover {
+  cursor: grab;
+  cursor: -webkit-grab;
 }
 
+#rightPane div div:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
 
 .option {
   display: inline-block;
@@ -118,8 +136,36 @@ button:hover {
 /*Styles for Invisi-Hover-Bubblons */
 
 /* Red Buttons in #demo */
+.delete-button {
+  font-size: 2em;
+  color: tomato;
+  position: absolute;
+  display: none;
+}
 
+.delete-button:hover {
+  cursor: pointer;
+  display:block;
+}
 
+.delete-button-hover {
+  display: block;
+}
+
+#top-delete {
+  top: 0;
+  left: 89%;
+}
+
+#middle-delete {
+  top: 33%;
+  left: 89%;
+}
+
+#bottom-delete {
+  top: 66%;
+  left: 89%;
+}
 
 /* Green button for Options */
 .fill-icon {
@@ -133,15 +179,20 @@ button:hover {
 }
 
 #preset-tab, #preset-dual, #preset-standard, #preset-chords-med, #preset-chords-large, #preset-fretboard-large, #preset-fretboard-med {
-  display: none;
+  opacity: 0;
+  transition: opacity .3s ease, margin-top .1s ease;;
   position: absolute;
   top: -10%;
   left: 90%;
 }
 
 .tab-example:hover #preset-tab, .dual-example:hover #preset-dual, .standard-example:hover #preset-standard, .chords-med-example:hover #preset-chords-med, .chords-large-example:hover #preset-chords-large, .fretboard-large-example:hover #preset-fretboard-large, .fretboard-med-example:hover #preset-fretboard-med {
-  display: block;
+  opacity: 1;
 }
+
+#rightPane i:active {
+  margin-top: 4px;
+ }
 
 /* RESPONSIVE STYLES */
 @media (max-width: 1000px) {
@@ -200,5 +251,9 @@ button:hover {
     width: 100%!important;
     border:none!important;
     height: 3.5in!important;
+  }
+
+  #demo img.gray-print {
+    opacity: .4!important;
   }
 }

@@ -10,14 +10,6 @@ $(document).ready(function() {
     }
   })
 
-//can listen to when the event is starting and do stuff
-    // $( ".option" ).on( "dragstart", function( event, ui ) {
-    //   if ($("#demo .option").length >= 3) {
-    //     console.log(ui.helper[0])
-        // $("#demo .option:nth-child(4)").detach();
-    //   }
-    // })
-
   let removeItem = false
 
   $("#demo").sortable({
@@ -32,6 +24,7 @@ $(document).ready(function() {
    beforeStop: function(event, ui) {
      if(removeItem == true) {
        ui.item.remove()
+       $(".delete-button").removeClass("delete-button-hover")
      }
    }
   })
@@ -42,17 +35,45 @@ $(document).ready(function() {
 
   $("#clear").click(function() {
     $("#demo .option").remove()
+    $(".delete-button").removeClass("delete-button-hover")
   })
 
-  $("#demo").hover(
-    function() {$(".delete-button").addClass("delete-button-hover")},
-    function() {$(".delete-button").removeClass("delete-button-hover")}
-  )
+  //mouseover show/hide delete button
+  $(document).on({
+    mouseenter: function() {
+      console.log(!$("#demo .ui-draggable-dragging").length > 0);
+      if (!$("#demo .ui-draggable-dragging").length > 0) {
+        $("#top-delete").addClass("delete-button-hover")
+      }
+    },
+    mouseleave: function() {
+      $("#top-delete").removeClass("delete-button-hover")
+    }
+  }, "#demo img:nth-child(4)")
+
+  $(document).on({
+    mouseenter: function() {
+      if (!$("#demo .ui-draggable-dragging").length > 0) {
+        $("#middle-delete").addClass("delete-button-hover")
+      }
+    },
+    mouseleave: function() {
+      $("#middle-delete").removeClass("delete-button-hover")
+    }
+  }, "#demo img:nth-child(5)")
+
+  $(document).on({
+    mouseenter: function() {
+      if (!$("#demo .ui-draggable-dragging").length > 0) {
+        $("#bottom-delete").addClass("delete-button-hover")
+      }
+    },
+    mouseleave: function() {
+      $("#bottom-delete").removeClass("delete-button-hover")
+    }
+  }, "#demo img:nth-child(6)")
 
 })
-
-//test
-
 
 // make a function to fill demo with selected music
 
