@@ -167,18 +167,12 @@ header {
   left: 89%;
 }
 
-/* Green button for Options */
-.fill-icon {
+/* Green button fill icon */
+
+#rightPane div div i {
   color: #4DB267;
   padding: 0;
   font-size: 2em;
-}
-
-.fill-icon:hover {
-  cursor: pointer;
-}
-
-#preset-tab, #preset-dual, #preset-standard, #preset-chords-med, #preset-chords-large, #preset-fretboard-large, #preset-fretboard-med {
   opacity: 0;
   transition: opacity .3s ease, margin-top .1s ease;;
   position: absolute;
@@ -186,13 +180,21 @@ header {
   left: 90%;
 }
 
-.tab-example:hover #preset-tab, .dual-example:hover #preset-dual, .standard-example:hover #preset-standard, .chords-med-example:hover #preset-chords-med, .chords-large-example:hover #preset-chords-large, .fretboard-large-example:hover #preset-fretboard-large, .fretboard-med-example:hover #preset-fretboard-med {
+#rightPane div div:hover i {
   opacity: 1;
+  cursor: pointer;
 }
 
 #rightPane i:active {
   margin-top: 4px;
  }
+
+/*plus icon*/
+#rightPane div div .plus-icon {
+  top: 30%;
+  left: 90%;
+}
+
 
 /* RESPONSIVE STYLES */
 @media (max-width: 1000px) {

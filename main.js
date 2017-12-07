@@ -39,6 +39,8 @@ $(document).ready(function() {
   })
 
   //mouseover show/hide delete button
+  //wrap this in a loop to greatly simplify it. or loop over an array
+  //where 4 => #top-delete, 5 => mid-delete, etc
   $(document).on({
     mouseenter: function() {
       console.log(!$("#demo .ui-draggable-dragging").length > 0);
@@ -84,6 +86,12 @@ let fillPage = (id) => {
     for(let i = 0; i < times; i++) {
       $("#demo").append($(id).clone())
     }
+  }
+}
+
+let plusOne = (id) => {
+  if ($("#demo").children('img').length < 3) {
+    $("#demo").append($(id).clone())
   }
 }
 
