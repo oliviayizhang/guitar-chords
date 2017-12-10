@@ -195,6 +195,38 @@ header {
   left: 90%;
 }
 
+/*tooltip without jquery*/
+
+/*.tooltip-hide {
+  position: absolute;
+  left: 48%;
+  top: 70%;
+  width: 100%;
+  border: 1px solid black;
+  padding: .5em 0.2em;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 0;
+}*/
+
+/*.tooltip-show {
+  opacity: 1
+}*/
+
+.tooltip {
+  position: absolute;
+  left: 62%;
+  top: 48%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: .5em .2em;
+  background-color: white;
+}
+
+.ui-helper-hidden-accessible div {
+  display: none;
+}
 
 /* RESPONSIVE STYLES */
 @media (max-width: 1000px) {

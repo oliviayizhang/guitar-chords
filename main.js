@@ -38,12 +38,12 @@ $(document).ready(function() {
     $(".delete-button").removeClass("delete-button-hover")
   })
 
+
   //mouseover show/hide delete button
   //wrap this in a loop to greatly simplify it. or loop over an array
   //where 4 => #top-delete, 5 => mid-delete, etc
   $(document).on({
     mouseenter: function() {
-      console.log(!$("#demo .ui-draggable-dragging").length > 0);
       if (!$("#demo .ui-draggable-dragging").length > 0) {
         $("#top-delete").addClass("delete-button-hover")
       }
@@ -75,6 +75,14 @@ $(document).ready(function() {
     }
   }, "#demo img:nth-child(6)")
 
+  //tooltip
+  $(".plus-icon").tooltip({
+    tooltipClass: 'tooltip',
+    disabled: true,
+    position: {my: 'center top', at: 'center top', of: "$(.plus-icon)" },
+    close: function( event, ui ) { $(this).tooltip('disable')}
+  })
+
 })
 
 // make a function to fill demo with selected music
@@ -87,10 +95,27 @@ let fillPage = (id) => {
       $("#demo").append($(id).clone())
     }
   }
+  $(".plus-icon").on('click', function() {
+    $(this).tooltip('enable').tooltip('open')
+  })
+
 }
 
 let plusOne = (id) => {
+  console.log("image added!");
+
+  $(".plus-icon").tooltip({
+    content:function() {
+      if ($("#demo").children('img').length == 3) {
+        console.log("There are 3 images");
+        return "Remove one first before adding more"
+      }
+      return ""
+    }
+  }).tooltip('open').tooltip('enable')
+
   if ($("#demo").children('img').length < 3) {
+    console.log("you can add more!");
     $("#demo").append($(id).clone())
   }
 }

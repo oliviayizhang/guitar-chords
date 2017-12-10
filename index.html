@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Guitar Sheets</title>
+    <link rel="stylesheet" type="text/css" href="./hubguitar.css">
     <link rel="stylesheet" type="text/css" href="./main.css">
     <link rel="stylesheet" type="text/css" href="./normalize.css">
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
@@ -41,13 +42,13 @@
         <div class="tab-example">
           <img class="option" id="tab" src="./img/x-blank-tab.png" alt="">
           <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#tab')"></i>
+          <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')" title="Tooltip from html"></i>
         </div>
 
         <div class="dual-example">
           <img class="option" id="dual" src="./img/x-blank-dual.png" alt="">
           <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#dual')"></i>
+          <i class="fi-plus plus-icon" id="plus-icon-dual" onClick="plusOne('#dual')"></i>
         </div>
 
         <div class="standard-example">
