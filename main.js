@@ -76,12 +76,12 @@ $(document).ready(function() {
   }, "#demo img:nth-child(6)")
 
   //tooltip
-  $(".plus-icon").tooltip({
-    tooltipClass: 'tooltip',
-    disabled: true,
-    position: {my: 'center top', at: 'center top', of: "$(.plus-icon)" },
-    close: function( event, ui ) { $(this).tooltip('disable')}
-  })
+  // $(".plus-icon").tooltip({
+  //   tooltipClass: 'tooltip',
+  //   disabled: true,
+  //   position: {my: 'center top', at: 'center top', of: "$(.plus-icon)" },
+  //   close: function( event, ui ) { $(this).tooltip('disable')}
+  // })
 
 })
 
@@ -101,21 +101,31 @@ let fillPage = (id) => {
 
 }
 
-let plusOne = (id) => {
-  console.log("image added!");
+// let hideTooltip = () => {
+//   setTimeout(function() {
+//     $(".plus-icon").tooltip('close')
+//   }, 4000)
+// }
 
-  $(".plus-icon").tooltip({
-    content:function() {
-      if ($("#demo").children('img').length == 3) {
-        console.log("There are 3 images");
-        return "Remove one first before adding more"
-      }
-      return ""
+let plusOne = (id) => {
+  // $(".plus-icon").tooltip({
+  //   content:function() {
+  //     if ($("#demo").children('img').length == 3) {
+  //       return "Remove one first before adding more"
+  //     }
+  //     return ""
+  //   }
+  // }).tooltip('open').tooltip('enable')
+  // hideTooltip()
+
+  if ($("#demo").children('img').length == 3) {
+    let display = $(".alert-message").css("display")
+    if (display == "none") {
+      $(".alert-message").fadeIn().delay(3000).fadeOut()
     }
-  }).tooltip('open').tooltip('enable')
+  }
 
   if ($("#demo").children('img').length < 3) {
-    console.log("you can add more!");
     $("#demo").append($(id).clone())
   }
 }

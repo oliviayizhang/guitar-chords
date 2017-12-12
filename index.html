@@ -27,6 +27,11 @@
    	  <button id="clear"><i class="fa fa-times-circle  fa-lg" id="" aria-hidden="true"></i>Clear</button>
 	  </div>
 
+    <div class="alert-box">
+      <span id="blank-span">&nbsp;</span>
+      <span class="alert-message">Please remove one before continue</span>
+    </div>
+
   	<div id='leftPane'>
 	    <div id="demo">
         <!-- <i class="fa fa-minus-square fa-2x delete-button" id="top-delete" aria-hidden="true" onClick="removeOne('0')"></i> -->
@@ -37,12 +42,13 @@
 	 </div>
 
     <div id='rightPane'>
+
       <div class="parameter">
 
         <div class="tab-example">
           <img class="option" id="tab" src="./img/x-blank-tab.png" alt="">
           <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
-          <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')" title="Tooltip from html"></i>
+          <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')"></i>
         </div>
 
         <div class="dual-example">
@@ -81,6 +87,12 @@
           <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
           <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-med')"></i>
         </div>
+
+        <div class="option">
+          <textarea>
+          </textarea>
+        </div>
+
 
       </div>
     </div>
