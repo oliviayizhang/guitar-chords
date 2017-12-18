@@ -7,6 +7,7 @@ $(document).ready(function() {
       if ($("#demo .option").length >= 3) {
         event.preventDefault()
       }
+      console.log(ui.helper);
     }
   })
 
@@ -35,9 +36,9 @@ $(document).ready(function() {
 
   $("#clear").click(function() {
     $("#demo .option").remove()
+    $("#demo textarea").remove()
     $(".delete-button").removeClass("delete-button-hover")
   })
-
 
   //mouseover show/hide delete button
   //wrap this in a loop to greatly simplify it. or loop over an array
@@ -83,10 +84,49 @@ $(document).ready(function() {
   //   close: function( event, ui ) { $(this).tooltip('disable')}
   // })
 
+  $("#dialog").dialog({
+    autoOpen: false,
+    modal: true,
+    width: 700,
+    height: 500,
+    closeText: 'x',
+    show: { effect: "fade", duration: 300}
+  })
+
+  $("#add-text-button").click(function() {
+    $("#dialog").dialog("open")
+  })
+
+  //1/3 or 2/3 textarea
+  let isOneThirds = true
+  let isTwoThirds = false
+  $("#long-text").click(function(e) {
+    event.preventDefault()
+    $(this).hasClass("text-division-clicked") ? $(this).removeClass("text-division-clicked") : $(this).addClass("text-division-clicked")
+    isTwoThirds = true
+    isOneThirds = false
+    console.log("Your chose longer text");
+  })
+
+  $("#short-text").click(function(e) {
+    event.preventDefault()
+    isOneThirds = true
+    isTwoThirds = false
+    $(this).hasClass("text-division-clicked") ? $(this).removeClass("text-division-clicked") : $(this).addClass("text-division-clicked")
+    console.log("Your chose shorter text");
+  })
+
+  $("#text-submit-button").click(function(e) {
+    event.preventDefault()
+    $("#dialog").dialog("close")
+    $("#textarea").appendTo($("#demo"))
+    if (isTwoThirds) {
+      $("#textarea").addClass("long-text")
+    }
+  })
 })
 
 // make a function to fill demo with selected music
-
 let fillPage = (id) => {
   $("#demo .option").remove()
   if($("#demo").children('img').length == 0) {
@@ -95,10 +135,6 @@ let fillPage = (id) => {
       $("#demo").append($(id).clone())
     }
   }
-  $(".plus-icon").on('click', function() {
-    $(this).tooltip('enable').tooltip('open')
-  })
-
 }
 
 // let hideTooltip = () => {
@@ -136,4 +172,6 @@ let removeOne = (num) => {
   	let element = document.getElementsByClassName("ui-draggable")[num]
   	element.remove()
 	}
+
+
 }

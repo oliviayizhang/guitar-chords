@@ -71,7 +71,6 @@ header {
   left: .5em;
 }
 
-
 #leftPane, #rightPane {
   position: absolute;
   width: 45%;
@@ -209,6 +208,89 @@ header {
   display: none;
 }
 
+/*text input*/
+.text-box {
+  /*border: 1px solid blue;*/
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+#add-text-button {
+  padding: 0.5em;
+  background-color: white;
+  border-radius: 8px;
+  outline: none;
+}
+
+/*dialog*/
+.ui-dialog {
+  border: 1px solid grey;
+  background-color: white;
+  outline: none;
+}
+
+.ui-dialog-content {
+  padding: 1em;
+}
+
+.ui-dialog-titlebar-close {
+  position: absolute;
+  right: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+#dialog textarea {
+  resize: none;
+  outline: none;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+
+#dialog textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#text-submit-button {
+  padding: 0.5em;
+  display: block;
+  margin: 0 auto;
+}
+
+#demo textarea {
+  height: 30%;
+  width: 100%;
+  border: none;
+  resize: none;
+  text-align: center;
+}
+
+#demo textarea.long-text {
+  height: 60%!important;
+}
+
+.text-division {
+  padding: 0.3em;
+  border-radius: 3px;
+  outline: none;
+}
+
+.text-division-clicked {
+  background-color: grey;
+}
+
+
 /* RESPONSIVE STYLES */
 @media (max-width: 1000px) {
 	#rightPane, #leftPane {
@@ -243,7 +325,7 @@ header {
       background: white!important;
   }
 
-  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i, .tooltip {
+  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i {
     display: none!important;
   }
 
@@ -272,7 +354,7 @@ header {
     opacity: .4!important;
   }
 
-  textarea {
+  /*textarea {
     border: none;
-  }
+  }*/
 }
