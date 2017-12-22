@@ -7,7 +7,6 @@ $(document).ready(function() {
       if ($("#demo .option").length >= 3) {
         event.preventDefault()
       }
-      console.log(ui.helper);
     }
   })
 
@@ -35,8 +34,8 @@ $(document).ready(function() {
   })
 
   $("#clear").click(function() {
-    $("#demo .option").remove()
-    $("#demo textarea").remove()
+    $("#demo .all-options").remove()
+    // $("#demo textarea").remove()
     $(".delete-button").removeClass("delete-button-hover")
   })
 
@@ -76,14 +75,6 @@ $(document).ready(function() {
     }
   }, "#demo img:nth-child(6)")
 
-  //tooltip
-  // $(".plus-icon").tooltip({
-  //   tooltipClass: 'tooltip',
-  //   disabled: true,
-  //   position: {my: 'center top', at: 'center top', of: "$(.plus-icon)" },
-  //   close: function( event, ui ) { $(this).tooltip('disable')}
-  // })
-
   $("#dialog").dialog({
     autoOpen: false,
     modal: true,
@@ -94,7 +85,11 @@ $(document).ready(function() {
   })
 
   $("#add-text-button").click(function() {
-    $("#dialog").dialog("open")
+    if ($("#demo .all-options").length <= 2) {
+      $("#dialog").dialog("open")
+    } else {
+      alert("Full!!!")
+    }
   })
 
   //1/3 or 2/3 textarea
@@ -102,24 +97,25 @@ $(document).ready(function() {
   let isTwoThirds = false
   $("#long-text").click(function(e) {
     event.preventDefault()
-    $(this).hasClass("text-division-clicked") ? $(this).removeClass("text-division-clicked") : $(this).addClass("text-division-clicked")
-    isTwoThirds = true
-    isOneThirds = false
-    console.log("Your chose longer text");
+    if ($("#demo .all-options").length <= 1) {
+      isTwoThirds = true
+      isOneThirds = false
+      console.log("Your chose longer text")
+    }
   })
 
   $("#short-text").click(function(e) {
     event.preventDefault()
     isOneThirds = true
     isTwoThirds = false
-    $(this).hasClass("text-division-clicked") ? $(this).removeClass("text-division-clicked") : $(this).addClass("text-division-clicked")
     console.log("Your chose shorter text");
   })
 
   $("#text-submit-button").click(function(e) {
     event.preventDefault()
     $("#dialog").dialog("close")
-    $("#textarea").appendTo($("#demo"))
+    $("#textarea").clone().appendTo($("#demo"))
+    $("#dialog textarea").val("")
     if (isTwoThirds) {
       $("#textarea").addClass("long-text")
     }
@@ -129,7 +125,7 @@ $(document).ready(function() {
 // make a function to fill demo with selected music
 let fillPage = (id) => {
   $("#demo .option").remove()
-  if($("#demo").children('img').length == 0) {
+  if($("#demo .all-options").length == 0) {
     let times = 3
     for(let i = 0; i < times; i++) {
       $("#demo").append($(id).clone())
@@ -137,39 +133,23 @@ let fillPage = (id) => {
   }
 }
 
-// let hideTooltip = () => {
-//   setTimeout(function() {
-//     $(".plus-icon").tooltip('close')
-//   }, 4000)
-// }
-
 let plusOne = (id) => {
-  // $(".plus-icon").tooltip({
-  //   content:function() {
-  //     if ($("#demo").children('img').length == 3) {
-  //       return "Remove one first before adding more"
-  //     }
-  //     return ""
-  //   }
-  // }).tooltip('open').tooltip('enable')
-  // hideTooltip()
-
-  if ($("#demo").children('img').length == 3) {
+  if ($("#demo .all-options").length == 3) {
     let display = $(".alert-message").css("display")
     if (display == "none") {
       $(".alert-message").fadeIn().delay(3000).fadeOut()
     }
   }
 
-  if ($("#demo").children('img').length < 3) {
+  if ($("#demo .all-options").length < 3) {
     $("#demo").append($(id).clone())
   }
 }
 
 let removeOne = (num) => {
-	var count = parseFloat(8)+parseFloat(num);
-	if  (document.getElementsByClassName("ui-draggable").length >= count) {
-  	let element = document.getElementsByClassName("ui-draggable")[num]
+	let count = parseFloat(8)+parseFloat(num);
+	if  (document.getElementsByClassName("all-options").length >= count) {
+  	let element = document.getElementsByClassName("all-options")[num]
   	element.remove()
 	}
 

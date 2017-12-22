@@ -18,95 +18,189 @@
       <h2>Printable Guitar Sheets</h2>
     </header>
 
-  <!-- begin area -->
-  <div id='print-window'>
-    <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
+    <!-- begin area -->
+    <div id='print-window'>
+      <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
 
-	  <div id="button-box">
-  		<button id="print"><i class="fa fa-print fa-lg" id="" aria-hidden="true"></i>Print</button>
-   	  <button id="clear"><i class="fa fa-times-circle  fa-lg" id="" aria-hidden="true"></i>Clear</button>
-	  </div>
+  	  <div id="button-box">
+    		<button id="print"><i class="fa fa-print fa-lg" id="" aria-hidden="true"></i>Print</button>
+     	  <button id="clear"><i class="fa fa-times-circle  fa-lg" id="" aria-hidden="true"></i>Clear</button>
+  	  </div>
 
-    <div class="alert-box">
-      <span id="blank-span">&nbsp;</span>
-      <span class="alert-message">Please remove one before continue</span>
-    </div>
+      <div class="alert-box">
+        <span id="blank-span">&nbsp;</span>
+        <span class="alert-message">Please remove one before continue</span>
+      </div>
 
-  	<div id='leftPane'>
-	    <div id="demo">
-        <!-- <i class="fa fa-minus-square fa-2x delete-button" id="top-delete" aria-hidden="true" onClick="removeOne('0')"></i> -->
-        <i class="fi-minus-circle delete-button" id="top-delete" onClick="removeOne('0')"></i>
-        <i class="fi-minus-circle delete-button" id="middle-delete" onClick="removeOne('1')"></i>
-        <i class="fi-minus-circle delete-button" id="bottom-delete" onClick="removeOne('2')"></i>
-	  </div>
-	 </div>
+    	<div id='leftPane'>
+  	    <div id="demo">
+          <i class="fi-minus-circle delete-button" id="top-delete" onClick="removeOne('0')"></i>
+          <i class="fi-minus-circle delete-button" id="middle-delete" onClick="removeOne('1')"></i>
+          <i class="fi-minus-circle delete-button" id="bottom-delete" onClick="removeOne('2')"></i>
+  	    </div>
+  	  </div>
 
-    <div id='rightPane'>
+      <div id='rightPane'>
 
-      <div class="parameter">
+        <div class="parameter">
 
-        <div class="tab-example">
-          <img class="option" id="tab" src="./img/x-blank-tab.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
-          <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')"></i>
+          <div class="tab-example">
+            <img class="option all-options" id="tab" src="./img/x-blank-tab.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
+            <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')"></i>
+          </div>
+
+          <div class="dual-example">
+            <img class="option all-options" id="dual" src="./img/x-blank-dual.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
+            <i class="fi-plus plus-icon" id="plus-icon-dual" onClick="plusOne('#dual')"></i>
+          </div>
+
+          <div class="standard-example">
+            <img class="option all-options" id="standard" src="./img/x-blank-standard.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-standard" onClick="fillPage('#standard')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#standard')"></i>
+          </div>
+
+          <div class="chords-med-example">
+            <img class="option all-options gray-print" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-chords-med" onClick="fillPage('#chords-med')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#chords-med')"></i>
+          </div>
+
+          <div class="chords-large-example">
+            <img class="option all-options gray-print" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-chords-large" onClick="fillPage('#chords-lrg')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#chords-lrg')"></i>
+          </div>
+
+          <div class="fretboard-large-example">
+            <img class="option all-options gray-print" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-fretboard-large" onClick="fillPage('#fretboard-lrg')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-lrg')"></i>
+          </div>
+
+          <div class="fretboard-med-example">
+            <img class="option all-options gray-print" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-med')"></i>
+          </div>
+
+          <div class="text-box">
+            <button id="add-text-button">Click to add text box</button>
+
+            <form id="dialog">
+
+              <input class="text-division" id="short-text" type="radio" checked>
+              <label for="short-text">1/3 page</label>
+
+              <input class="text-division" id="long-text" type="radio">
+              <label for="long-text">2/3 page</label>
+
+              <textarea placeholder="Enter text...." cols="80" rows="20" id="textarea" class="all-options"></textarea>
+              <input type="submit" id="text-submit-button"/>
+            </form>
+          </div>
         </div>
-
-        <div class="dual-example">
-          <img class="option" id="dual" src="./img/x-blank-dual.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
-          <i class="fi-plus plus-icon" id="plus-icon-dual" onClick="plusOne('#dual')"></i>
-        </div>
-
-        <div class="standard-example">
-          <img class="option" id="standard" src="./img/x-blank-standard.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-standard" onClick="fillPage('#standard')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#standard')"></i>
-        </div>
-
-        <div class="chords-med-example">
-          <img class="option gray-print" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-chords-med" onClick="fillPage('#chords-med')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#chords-med')"></i>
-
-        </div>
-
-        <div class="chords-large-example">
-          <img class="option gray-print" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-chords-large" onClick="fillPage('#chords-lrg')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#chords-lrg')"></i>
-        </div>
-
-        <div class="fretboard-large-example">
-          <img class="option gray-print" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-large" onClick="fillPage('#fretboard-lrg')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-lrg')"></i>
-        </div>
-
-        <div class="fretboard-med-example">
-          <img class="option gray-print" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-med')"></i>
-        </div>
-
-        <div class="text-box">
-          <button id="add-text-button">Click to add text box</button>
-          <form id="dialog">
-            <input class="text-division" id="short-text" type="radio" value="oneThirds" name="division" checked>
-            <label for="short-text">1/3 page</label>
-            <input class="text-division" id="long-text" type="radio" value="twoThirds" name="division">
-            <label for="long-text">2/3 page</label>
-            <textarea placeholder="Enter text...." cols="80" rows="20" id="textarea"></textarea>
-            <input type="submit" id="text-submit-button"/>
-          </form>
-        </div>
-
-
       </div>
     </div>
+    <!-- end -->
 
-  </div>
+    <div style='font-family:mono; clear: both; margin-top: 50em; line-height: 0em;'>
+      <textarea cols="100" rows="25">[Intro]
+      C Am C Am
 
-  <!-- end -->
+      [Verse 1]
+        C                 Am
+      I heard there was a secret chord
+           C                   Am
+      That David played and it pleased the lord
+          F                G               C        G
+      But you don't really care for music, do you?
+              C                  F           G
+      Well it goes like this the fourth, the fifth
+          Am                 F
+      The minor fall and the major lift
+          G            E7             Am
+      The baffled king composing hallelujah
+
+      [Chorus]
+           F           Am          F           C    G   C
+      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+
+      [Verse 2]
+                C                        Am
+      Well your faith was strong but you needed proof
+          C               Am
+      You saw her bathing on the roof
+          F              G             C            G
+      Her beauty and the moonlight overthrew you
+      C                   F       G
+      She tied you to her kitchen chair
+          Am                        F
+      She broke your throne and she cut your hair
+          G                  E7            Am
+      And from your lips she drew the hallelujah
+
+      [Chorus]
+           F           Am          F           C    G   C
+      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+
+      [Verse 3]
+      C              Am
+      Baby I've been here before
+           C                       Am
+      I've seen this room and I've walked this floor
+        F             G             C          G
+      I used to live alone before I knew you
+      C                          F      G
+      I've seen your flag on the marble arch
+          Am                    F
+      But love is not a victory march
+             G               E7          Am
+      It's a cold and it's a broken hallelujah
+
+      [Chorus]
+           F           Am          F           C    G   C
+      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+
+      [Verse 4]
+           C                         Am
+      Well there was a time when you let me know
+             C            Am
+      What's really going on below
+          F             G               C        G
+      But now you never show that to me do you
+            C             F        G
+      But remember when I moved in you
+              Am            F
+      And the holy dove was moving too
+          G               E7            Am
+      And every breath we drew was hallelujah
+
+      [Chorus]
+           F           Am          F           C    G   C
+      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+
+      [Verse 5]
+            C               Am
+      Well, maybe there's a god above
+          C             Am
+      But all I've ever learned from love
+          F                G           C          G
+      Was how to shoot somebody who outdrew you
+           C                  F       G
+      It's not a cry that you hear at night
+           Am                 F
+      It's not somebody who's seen the light
+             G               E7          Am
+      It's a cold and it's a broken hallelujah
+
+      [Outro]
+           F           Am          F           C    G   C
+      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+      </textarea>
+    </div>
 
   </body>
 </html>

@@ -274,6 +274,8 @@ header {
   border: none;
   resize: none;
   text-align: center;
+  font-size: 0.3em;
+  overflow: hidden;
 }
 
 #demo textarea.long-text {
@@ -325,7 +327,7 @@ header {
       background: white!important;
   }
 
-  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i {
+  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i, .alert-box {
     display: none!important;
   }
 
@@ -344,7 +346,7 @@ header {
     margin: 0!important;
   }
 
-  #demo img {
+  #demo img, #demo .all-options {
     width: 100%!important;
     border:none!important;
     height: 3.5in!important;
@@ -354,7 +356,9 @@ header {
     opacity: .4!important;
   }
 
-  /*textarea {
-    border: none;
-  }*/
+  #demo textarea {
+    font-size: 1em;
+    padding: 1em!important;
+  }
+
 }
