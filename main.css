@@ -149,17 +149,21 @@ header {
   display: block;
 }
 
-#top-delete {
+.top-delete {
   top: 0;
   left: 89%;
 }
 
-#middle-delete {
+.middle-delete {
   top: 33%;
   left: 89%;
 }
 
-#bottom-delete {
+.middle-delete-to-bottom {
+  top: 66%;
+}
+
+.bottom-delete {
   top: 66%;
   left: 89%;
 }

@@ -4,7 +4,9 @@ $(document).ready(function() {
     opacity: 0.5,
     connectToSortable: "#demo",
     start: function(event, ui) {
-      if ($("#demo .option").length >= 3) {
+      if ($("#demo textarea").hasClass("long-text") && $("#demo .all-options").length ==2) {
+        event.preventDefault()
+      } else if (!$("#demo textarea").hasClass("long-text") && $("#demo .all-options").length ==3) {
         event.preventDefault()
       }
     }
@@ -45,35 +47,41 @@ $(document).ready(function() {
   $(document).on({
     mouseenter: function() {
       if (!$("#demo .ui-draggable-dragging").length > 0) {
-        $("#top-delete").addClass("delete-button-hover")
+        $(".top-delete").addClass("delete-button-hover")
       }
     },
     mouseleave: function() {
-      $("#top-delete").removeClass("delete-button-hover")
+      $(".top-delete").removeClass("delete-button-hover")
     }
-  }, "#demo img:nth-child(4)")
+  }, "#demo .all-options:nth-child(4)")
 
   $(document).on({
     mouseenter: function() {
       if (!$("#demo .ui-draggable-dragging").length > 0) {
-        $("#middle-delete").addClass("delete-button-hover")
+        if ($(".long-text").is("#demo .all-options:nth-child(4)")) {
+          $(".middle-delete").addClass("delete-button-hover middle-delete-to-bottom")
+          console.log("Add class middle-delete-to-bottom!");
+        } else {
+          $(".middle-delete").removeClass("middle-delete-to-bottom")
+          $(".middle-delete").addClass("delete-button-hover")
+        }
       }
     },
     mouseleave: function() {
-      $("#middle-delete").removeClass("delete-button-hover")
+      $(".middle-delete").removeClass("delete-button-hover")
     }
-  }, "#demo img:nth-child(5)")
+  }, "#demo .all-options:nth-child(5)")
 
   $(document).on({
     mouseenter: function() {
       if (!$("#demo .ui-draggable-dragging").length > 0) {
-        $("#bottom-delete").addClass("delete-button-hover")
+        $(".bottom-delete").addClass("delete-button-hover")
       }
     },
     mouseleave: function() {
-      $("#bottom-delete").removeClass("delete-button-hover")
+      $(".bottom-delete").removeClass("delete-button-hover")
     }
-  }, "#demo img:nth-child(6)")
+  }, "#demo .all-options:nth-child(6)")
 
   $("#dialog").dialog({
     autoOpen: false,
@@ -85,10 +93,16 @@ $(document).ready(function() {
   })
 
   $("#add-text-button").click(function() {
-    if ($("#demo .all-options").length <= 2) {
+    let display = $(".alert-message").css("display")
+
+    if (!$("#demo textarea").hasClass("long-text") && $("#demo .all-options").length <= 2) {
+      $("#dialog").dialog("open")
+    } else if ($("#demo text").hasClass("long-text") && $("#demo .all-options").length < 2) {
       $("#dialog").dialog("open")
     } else {
-      alert("Full!!!")
+      if (display == "none") {
+        $(".alert-message").fadeIn().delay(3000).fadeOut()
+      }
     }
   })
 
@@ -119,12 +133,14 @@ $(document).ready(function() {
     if (isTwoThirds) {
       $("#textarea").addClass("long-text")
     }
+    isOneThirds = true
+    isTwoThirds = false
   })
 })
 
 // make a function to fill demo with selected music
 let fillPage = (id) => {
-  $("#demo .option").remove()
+  $("#demo .all-options").remove()
   if($("#demo .all-options").length == 0) {
     let times = 3
     for(let i = 0; i < times; i++) {
@@ -134,14 +150,27 @@ let fillPage = (id) => {
 }
 
 let plusOne = (id) => {
-  if ($("#demo .all-options").length == 3) {
-    let display = $(".alert-message").css("display")
+  let display = $(".alert-message").css("display")
+
+  //if (textarea has "long-text" && length == 2) || (textarea has no "long-text" && length == 3) {display message}
+  if ($("#demo textarea").hasClass("long-text") && $("#demo .all-options").length == 2) {
     if (display == "none") {
       $(".alert-message").fadeIn().delay(3000).fadeOut()
     }
   }
 
-  if ($("#demo .all-options").length < 3) {
+  if (!$("#demo textarea").hasClass("long-text") && $("#demo .all-options").length == 3) {
+    if (display == "none") {
+      $(".alert-message").fadeIn().delay(3000).fadeOut()
+    }
+  }
+
+  //if (textarea has "long-text" && length < 2) || (textarea has no "long-text" && length < 3) {append}
+  if ($("#demo textarea").hasClass("long-text") && $("#demo .all-options").length < 2) {
+     $("#demo").append($(id).clone())
+  }
+
+  if (!$("#demo textarea").hasClass("long-text") && $("#demo .all-options").length < 3) {
     $("#demo").append($(id).clone())
   }
 }
