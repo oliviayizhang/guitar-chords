@@ -125,9 +125,12 @@ $(document).ready(function() {
     console.log("Your chose shorter text");
   })
 
+  let lines;
+
   $("#text-submit-button").click(function(e) {
     event.preventDefault()
     $("#dialog").dialog("close")
+    //line limit check
     $("#textarea").clone().appendTo($("#demo"))
     $("#dialog textarea").val("")
     if (isTwoThirds) {
@@ -136,6 +139,21 @@ $(document).ready(function() {
     isOneThirds = true
     isTwoThirds = false
   })
+
+  //line count
+  $("#dialog #textarea").on('change keyup paste click', function() {
+    lines = $("#dialog #textarea").val().split(/\r\n|\r|\n/)
+    $("#line-count").text(lines.length)
+    //condition to change the numbers of lines color
+    if (isOneThirds && lines.length > 16) {
+      $("#line-count").css('color', 'red')
+    } else if (isTwoThirds && lines.length > 32) {
+      $("#line-count").css('color', 'red')
+    } else {
+      $("#line-count").css('color', 'black')
+    }
+  })
+
 })
 
 // make a function to fill demo with selected music
@@ -181,6 +199,4 @@ let removeOne = (num) => {
   	let element = document.getElementsByClassName("all-options")[num]
   	element.remove()
 	}
-
-
 }
