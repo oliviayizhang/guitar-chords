@@ -23,7 +23,8 @@ header {
   display: block;
 }
 
-#rightPane img {
+#rightPane img,
+#rightPane button {
   border: .1em dashed #eee;
   margin: .1em;
 }
@@ -214,16 +215,13 @@ header {
 
 /*text input*/
 .text-box {
-  /*border: 1px solid blue;*/
-  height: 100%;
-  width: 100%;
   position: absolute;
 }
+
 #add-text-button {
-  padding: 0.5em;
-  background-color: white;
-  border-radius: 8px;
   outline: none;
+  height: 5.25em;
+  width: 12.75em;
 }
 
 /*dialog*/

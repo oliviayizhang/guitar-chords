@@ -110,7 +110,7 @@ $(document).ready(function() {
   let isOneThirds = true
   let isTwoThirds = false
   $("#long-text").click(function(e) {
-    event.preventDefault()
+    // event.preventDefault()
     if ($("#demo .all-options").length <= 1) {
       isTwoThirds = true
       isOneThirds = false
@@ -119,7 +119,7 @@ $(document).ready(function() {
   })
 
   $("#short-text").click(function(e) {
-    event.preventDefault()
+    // event.preventDefault()
     isOneThirds = true
     isTwoThirds = false
     console.log("Your chose shorter text");
@@ -146,9 +146,9 @@ $(document).ready(function() {
     $("#line-count").text(lines.length)
     //condition to change the numbers of lines color
     if (isOneThirds && lines.length > 16) {
-      $("#line-count").css('color', 'red')
-    } else if (isTwoThirds && lines.length > 32) {
-      $("#line-count").css('color', 'red')
+      $("#line-count").css('color', 'tomato')
+    } else if (isTwoThirds && lines.length > 31) {
+      $("#line-count").css('color', 'tomato')
     } else {
       $("#line-count").css('color', 'black')
     }
