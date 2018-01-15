@@ -110,16 +110,16 @@ $(document).ready(function() {
   let isOneThirds = true
   let isTwoThirds = false
   $("#long-text").click(function(e) {
-    // event.preventDefault()
     if ($("#demo .all-options").length <= 1) {
       isTwoThirds = true
       isOneThirds = false
       console.log("Your chose longer text")
+    } else {
+      e.preventDefault()
     }
   })
 
   $("#short-text").click(function(e) {
-    // event.preventDefault()
     isOneThirds = true
     isTwoThirds = false
     console.log("Your chose shorter text");
@@ -143,14 +143,22 @@ $(document).ready(function() {
   //line count
   $("#dialog #textarea").on('change keyup paste click', function() {
     lines = $("#dialog #textarea").val().split(/\r\n|\r|\n/)
-    $("#line-count").text(lines.length)
+
+    if (isOneThirds) {
+      $("#line-count").text(lines.length)
+      $("#line-limit").text(" of 16")
+    } else {
+      $("#line-count").text(lines.length)
+      $("#line-limit").text(" of 31")
+    }
+
     //condition to change the numbers of lines color
     if (isOneThirds && lines.length > 16) {
-      $("#line-count").css('color', 'tomato')
+      $("#line-count").css({'color': 'tomato', 'font-weight': 'bold'})
     } else if (isTwoThirds && lines.length > 31) {
-      $("#line-count").css('color', 'tomato')
+      $("#line-count").css({'color': 'tomato', 'font-weight': 'bold'})
     } else {
-      $("#line-count").css('color', 'black')
+      $("#line-count").css({'color': '#4ECC6E', 'font-weight': 'bold'})
     }
   })
 
@@ -194,7 +202,7 @@ let plusOne = (id) => {
 }
 
 let removeOne = (num) => {
-	let count = parseFloat(8)+parseFloat(num);
+	let count = parseFloat(9)+parseFloat(num);
 	if  (document.getElementsByClassName("all-options").length >= count) {
   	let element = document.getElementsByClassName("all-options")[num]
   	element.remove()

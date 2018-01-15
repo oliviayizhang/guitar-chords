@@ -23,8 +23,7 @@ header {
   display: block;
 }
 
-#rightPane img,
-#rightPane button {
+#rightPane img {
   border: .1em dashed #eee;
   margin: .1em;
 }
@@ -102,6 +101,10 @@ header {
 #rightPane div div:hover {
   cursor: grab;
   cursor: -webkit-grab;
+}
+
+#rightPane .text-box:hover {
+  cursor: pointer;
 }
 
 #rightPane div div:active {
