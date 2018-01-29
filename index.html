@@ -18,6 +18,7 @@
       <h2>GUITAR CHORDS!!</h2>
     </header>
 
+<<<<<<< HEAD
   <!-- begin area -->
   <div id='print-window'>
     <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
@@ -100,14 +101,140 @@
 
         <div class='fret fret1'>asd</div>
 
+=======
+    <!-- begin area -->
+    <div id='print-window'>
+      <p>Drag and drop elements (below) into the portrait area to build your own printable guitar sheet. When you're ready, print the page to get your sheet. </p>
+
+  	  <div id="button-box">
+    		<button id="print"><i class="fa fa-print fa-lg" id="" aria-hidden="true"></i>Print</button>
+     	  <button id="clear"><i class="fa fa-times-circle  fa-lg" id="" aria-hidden="true"></i>Clear</button>
+  	  </div>
+
+      <div class="alert-box">
+        <span id="blank-span">&nbsp;</span>
+        <span class="alert-message">Please remove one before continue</span>
+      </div>
+
+    	<div id='leftPane'>
+  	    <div id="demo">
+          <i class="fi-minus-circle delete-button top-delete" onClick="removeOne('0')"></i>
+          <i class="fi-minus-circle delete-button middle-delete" onClick="removeOne('1')"></i>
+          <i class="fi-minus-circle delete-button bottom-delete" onClick="removeOne('2')"></i>
+  	    </div>
+  	  </div>
+
+      <div id='rightPane'>
+
+        <div class="parameter">
+
+          <div class="tab-example">
+            <img class="option all-options" id="tab" src="./img/x-blank-tab.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
+            <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')"></i>
+          </div>
+
+          <div class="dual-example">
+            <img class="option all-options" id="dual" src="./img/x-blank-dual.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
+            <i class="fi-plus plus-icon" id="plus-icon-dual" onClick="plusOne('#dual')"></i>
+          </div>
+
+          <div class="standard-example">
+            <img class="option all-options" id="standard" src="./img/x-blank-standard.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-standard" onClick="fillPage('#standard')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#standard')"></i>
+          </div>
+
+          <div class="chords-med-example">
+            <img class="option all-options gray-print" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-chords-med" onClick="fillPage('#chords-med')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#chords-med')"></i>
+          </div>
+
+          <div class="chords-large-example">
+            <img class="option all-options gray-print" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-chords-large" onClick="fillPage('#chords-lrg')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#chords-lrg')"></i>
+          </div>
+
+          <div class="fretboard-large-example">
+            <img class="option all-options gray-print" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-fretboard-large" onClick="fillPage('#fretboard-lrg')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-lrg')"></i>
+          </div>
+
+          <div class="fretboard-med-example">
+            <img class="option all-options gray-print" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
+            <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
+            <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-med')"></i>
+          </div>
+
+          <div class="text-box">
+            <img id="add-text-button" src="./img/text-box.png" alt="Click to add text box">
+
+            <form id="dialog">
+              <input class="text-division" id="short-text" type="radio" name="long-short-text" checked>
+              <label for="short-text">1/3 page</label>
+
+              <input class="text-division" id="long-text" type="radio" name="long-short-text">
+              <label for="long-text">2/3 page</label>
+
+              <textarea placeholder="Enter text here...." id="textarea" class="all-options"></textarea>
+              <span>Line count: <span id="line-count"></span><span id="line-limit"></span></span>
+              <input type="submit" value="submit" id="text-submit-button"/>
+            </form>
+          </div>
+
+        </div>
+>>>>>>> afe71947a2ed74392d30585385fb814d766df95b
       </div>
 
 
     </div>
+    <!-- end -->
 
-  </div>
+    <!-- <div style='font-family:mono; clear: both; margin-top: 50em; line-height: 0em;'>
+      <textarea cols="100" rows="60">
+  1      [Intro]
+  2     C Am C Am
+  3     [Verse 1]
+  4        C                 Am
+  5      I heard there was a secret chord
+  6           C                   Am
+  7      That David played and it pleased the lord
+  8          F                G               C        G
+  9      But you don't really care for music, do you?
+  10              C                  F           G
+  11     Well it goes like this the fourth, the fifth
+  12          Am                 F
+  13      The minor fall and the major lift
+  14          G            E7             Am
+  15      The baffled king composing hallelujah
+  16
+  17      [Chorus]
+  18           F           Am          F           C    G   C
+  19      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ....
+  20
+  21      [Verse 2]
+  22                C                        Am
+  23      Well your faith was strong but you needed proof
+  24          C               Am
+  25      You saw her bathing on the roof
+  26          F              G             C            G
+  27      Her beauty and the moonlight overthrew you
+  28      C                   F       G
+  29      She tied you to her kitchen chair
+  30          Am                        F
+  31      She broke your throne and she cut your hair
+  32          G                  E7            Am
+  33      And from your lips she drew the hallelujah
+  34      [Chorus]
+  35           F           Am          F           C    G   C
+  36      Hallelujah, hallelujah, hallelujah, hallelu-u-u-u-jah ...
 
-  <!-- end -->
+      </textarea>
+    </div> -->
 
   </body>
 </html>
