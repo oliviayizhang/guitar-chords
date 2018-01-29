@@ -198,6 +198,11 @@ header {
   color: white;
 }
 
+/*textarea*/
+#textarea {
+  display: none;
+}
+
 .alert-message {
   padding: .3em;
   color: white;
@@ -243,7 +248,7 @@ header {
       background: white!important;
   }
 
-  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i, .tooltip {
+  .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i {
     display: none!important;
   }
 
@@ -272,7 +277,7 @@ header {
     opacity: .4!important;
   }
 
-  textarea {
+  /*textarea {
     border: none;
-  }
+  }*/
 }

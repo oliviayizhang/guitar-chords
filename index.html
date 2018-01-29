@@ -15,7 +15,7 @@
   <body>
     <header>
       <h1>Hub Guitar</h1>
-      <h2>Printable Guitar Sheets</h2>
+      <h2>GUITAR CHORDS!!</h2>
     </header>
 
   <!-- begin area -->
@@ -41,60 +41,68 @@
 	  </div>
 	 </div>
 
+   <style type='text/css'>
+
+    .chord-box-draw {
+        width: 3in;
+        height: 4.5in;
+        border: .4em solid #ddd;
+        position: absolute;
+        display: flex;
+
+      }
+
+    .open-string-x, .open-string-o {
+      position: relative;
+      margin-top: -2em;
+      border: .5em solid black;
+      border-radius: 2em;
+      height: 1.5em;
+      width: 1.5em;
+      margin: 0 .25em;
+    }
+
+    .open-string-x {
+      border: none;
+      font-size: 300%;
+    }
+
+    .open-string-x::after {
+      content: 'x';
+    }
+
+    .fret {
+      width: 4.5in;
+      height: 1em;
+      position: relative;
+      border-bottom: .5em solid #ccc;
+    }
+   </style>
+
     <div id='rightPane'>
 
-      <div class="parameter">
 
-        <div class="tab-example">
-          <img class="option" id="tab" src="./img/x-blank-tab.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-tab" onClick="fillPage('#tab')"></i>
-          <i class="fi-plus plus-icon" id="plus-icon-tab" onClick="plusOne('#tab')"></i>
-        </div>
+      <div class='chord-box-draw'>
 
-        <div class="dual-example">
-          <img class="option" id="dual" src="./img/x-blank-dual.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-dual" onClick="fillPage('#dual')"></i>
-          <i class="fi-plus plus-icon" id="plus-icon-dual" onClick="plusOne('#dual')"></i>
-        </div>
+        <div class='open-string-x'></div>
+        <div class='open-string-x'></div>
+        <div class='open-string-x'></div>
+        <div class='open-string-x'></div>
+        <div class='open-string-x'></div>
+        <div class='open-string-x'></div>
+<!--
+        <div class='open-string-o'></div>
+        <div class='open-string-o'></div>
+        <div class='open-string-o'></div>
+        <div class='open-string-o'></div>
+        <div class='open-string-o'></div>
+        <div class='open-string-o'></div> -->
 
-        <div class="standard-example">
-          <img class="option" id="standard" src="./img/x-blank-standard.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-standard" onClick="fillPage('#standard')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#standard')"></i>
-        </div>
-
-        <div class="chords-med-example">
-          <img class="option gray-print" id="chords-med" src="./img/x-blank-chords-med.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-chords-med" onClick="fillPage('#chords-med')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#chords-med')"></i>
-
-        </div>
-
-        <div class="chords-large-example">
-          <img class="option gray-print" id="chords-lrg" src="./img/x-blank-chords-large.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-chords-large" onClick="fillPage('#chords-lrg')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#chords-lrg')"></i>
-        </div>
-
-        <div class="fretboard-large-example">
-          <img class="option gray-print" id="fretboard-lrg" src="./img/x-blank-fretboard-large.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-large" onClick="fillPage('#fretboard-lrg')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-lrg')"></i>
-        </div>
-
-        <div class="fretboard-med-example">
-          <img class="option gray-print" id="fretboard-med" src="./img/x-blank-fretboard-med.png" alt="">
-          <i class="fi-paint-bucket fill-icon" id="preset-fretboard-med" onClick="fillPage('#fretboard-med')"></i>
-          <i class="fi-plus plus-icon" onClick="plusOne('#fretboard-med')"></i>
-        </div>
-
-        <div class="option">
-          <textarea>
-          </textarea>
-        </div>
-
+        <div class='fret fret1'>asd</div>
 
       </div>
+
+
     </div>
 
   </div>
