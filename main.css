@@ -258,6 +258,8 @@ header {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
+  width: 41.5em;
+  height: 22em;
 }
 
 #dialog textarea:focus {
@@ -319,7 +321,8 @@ header {
 
 @media print {
   img {
-    filter: none!important; }
+    filter: none!important;
+  }
 
   * {
     margin:0!important;
@@ -327,9 +330,10 @@ header {
   }
 
   html, body {
-      width: 8.5in;
-      height: 11in;
-      background: white!important;
+    width: 8.5in;
+    height: 11in;
+    background: white!important;
+
   }
 
   .parameter, #message, h1, h2, h3, h4, h5, p, i, button, #print, #clear, #demo i, .alert-box {
@@ -342,6 +346,10 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+  }
+
+  .all-options {
+    page-break-after: avoid;
   }
 
   html, body, #demo, #mainFrame {

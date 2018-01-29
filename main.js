@@ -93,11 +93,11 @@ $(document).ready(function() {
   })
 
   $("#add-text-button").click(function() {
-    let display = $(".alert-message").css("display")
+    isOneThirds = true
+    isTwoThirds = false
 
-    if (!$("#demo textarea").hasClass("long-text") && $("#demo .all-options").length <= 2) {
-      $("#dialog").dialog("open")
-    } else if ($("#demo text").hasClass("long-text") && $("#demo .all-options").length < 2) {
+    let display = $(".alert-message").css("display")
+    if ($("#demo").has("textarea").length == 0 && $("#demo .all-options").length <= 2) {
       $("#dialog").dialog("open")
     } else {
       if (display == "none") {
@@ -128,16 +128,18 @@ $(document).ready(function() {
   let lines;
 
   $("#text-submit-button").click(function(e) {
-    event.preventDefault()
+    e.preventDefault()
     $("#dialog").dialog("close")
-    //line limit check
-    $("#textarea").clone().appendTo($("#demo"))
-    $("#dialog textarea").val("")
+    $("#dialog #textarea").clone().appendTo($("#demo"))
+    //add css class "long-text" to change the height
     if (isTwoThirds) {
-      $("#textarea").addClass("long-text")
+      $("#demo #textarea").addClass("long-text")
     }
-    isOneThirds = true
+    //reset the value to empty
+    $("#dialog #textarea").val("")
+    //reset radio button value
     isTwoThirds = false
+    isOneThirds = true
   })
 
   //line count
